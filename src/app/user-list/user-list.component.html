@@ -1,0 +1,15 @@
+<div class="container">
+  <div 
+    *ngFor="let user of users"
+    [routerLink]="['/user-details', user.id]"  
+  >
+    <div class="card">
+      <img class="card-image" src="{{ user.imageUrl }}" placeholder="Some animal, probably"/>
+      <p>
+        <strong>{{ user.prefix }} {{ user.name }} {{ user.lastName }}</strong>
+      </p>
+      <p class="second-text">{{ user.title }}</p>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,59 @@
+<button (click)="onClick()">Click</button>
+<div class="container">
+  <div class="user-info-container">
+    <img class="image" src="{{ user.imageUrl }}" />
+
+    <fieldset class="personal-info">
+      <legend>Information</legend>
+      <div>
+        <p>
+          <strong>{{ user.prefix }} {{ user.name }} {{ user.lastName }}</strong>
+        </p>
+        <p>
+          <i>{{ user.title }}</i>
+        </p>
+      </div>
+      <div class="info-body">
+        <p><u>Email:</u> {{ user.email }}</p>
+        <p><u>Ip Address:</u> {{ user.ip }}</p>
+        <p><u>Job Area:</u> {{ user.jobArea }}</p>
+        <p><u>Job Type:</u> {{ user.jobType }}</p>
+      </div>
+    </fieldset>
+    <fieldset class="address">
+      <legend>Address</legend>
+      <p>
+        <strong>{{ user.company.name }} {{ user.company.suffix }}</strong>
+      </p>
+      <div>
+        <p><u>City:</u> {{ user.address.city }}</p>
+        <p><u>Country:</u> {{ user.address.country }}</p>
+        <p><u>State:</u> {{ user.address.state }}</p>
+        <p><u>Street Address:</u> {{ user.address.streetAddress }}</p>
+        <p><u>ZIP:</u> {{ user.address.zipCode }}</p>
+      </div>
+    </fieldset>
+  </div>
+
+  <h2>Friends:</h2>
+  <div class="friends-container">
+    <div
+      *ngFor="let friend of friends"
+      [routerLink]="['/user-details', user.id]"
+    >
+      <div class="card">
+        <img
+          class="card-image"
+          src="{{ friend.imageUrl }}"
+          placeholder="Some animal, probably"
+        />
+        <p>
+          <strong
+            >{{ friend.prefix }} {{ friend.name }} {{ friend.lastName }}</strong
+          >
+        </p>
+        <p class="second-text">{{ friend.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>

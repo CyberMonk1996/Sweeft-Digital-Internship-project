@@ -5,7 +5,7 @@
   justify-content: space-around;
 }
 .card {
-  width: 150px;
+  width: 200px;
   height: 230px;
   border: 1px solid grey;
   border-radius: 8px;
@@ -14,11 +14,12 @@
 }
 
 .card-image {
-  width: 151px;
+  width: 201px;
   height: 180px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   margin-top: -1px;
+  margin-left: -1px;
 }
 
 p {

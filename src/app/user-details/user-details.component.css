@@ -11,18 +11,31 @@
 
 .image {
   width: 200px;
-  height: 200px;
-  margin-left: -18px;
-  margin-top: -1px;
+  height: 150px;
+  margin-top: 20px;
 }
 
 .personal-info {
-  height: 150px;
+  height: 100px;
+  padding-top: 20px;
+  margin-top: 25px;
+  margin-left: 20px;
+  font-weight: 300;
+  font-family: "Roboto-light";
 }
 
-p {
-  font-size: 12px;
-  margin-top: -20px;
+.address {
+  font-family: "Roboto-light";
+}
+
+.text {
+  margin-top: -10px;
+  font-family: "Roboto" sans-serif;
+}
+
+.friends-header {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  margin-left: 30px;
 }
 
 .friends-container {
@@ -38,6 +51,7 @@ p {
   border: 1px solid grey;
   border-radius: 8px;
   margin-bottom: 15px;
+  font-family: "Roboto-light";
 }
 
 .card-image {
@@ -55,4 +69,20 @@ p {
 
 .second-text {
   margin-top: -11px;
+}
+
+.breadcrumbContainer {
+  display: inline-flex;
+  flex-flow: row wrap;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  margin-left: 10px;
+  height: 20px;
+  text-align: center;
+}
+
+.bread-text {
+  margin-top: 3px;
 }

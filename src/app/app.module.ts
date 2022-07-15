@@ -6,11 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-// Getting route information
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { UserCardComponent } from './user-card/user-card.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
@@ -18,7 +13,6 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     AppComponent,
     UserListComponent,
     NotFoundComponent,
-    UserCardComponent,
     UserListComponent,
     UserDetailsComponent,
   ],

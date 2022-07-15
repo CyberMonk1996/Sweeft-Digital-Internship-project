@@ -1,4 +1,12 @@
-import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ElementRef,
+  ViewChildren,
+  QueryList,
+  OnChanges,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { FullUser, User } from '../models/users.model';
@@ -8,11 +16,16 @@ import { FullUser, User } from '../models/users.model';
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css'],
 })
-export class UserDetailsComponent implements OnInit, /*OnDestroy*/ OnChanges {
+export class UserDetailsComponent implements OnInit, AfterViewInit, OnChanges {
+  @ViewChildren('theLastList', { read: ElementRef })
+  theLastList: QueryList<ElementRef>;
+
   id: number;
   user: FullUser;
-  page: number = 1;
   friends: User[] = [];
+  currentPage: number = 1;
+  observer: any;
+  previousFriends: User[] = [];
   private sub: any;
   constructor(
     private route: ActivatedRoute,
@@ -23,18 +36,55 @@ export class UserDetailsComponent implements OnInit, /*OnDestroy*/ OnChanges {
     this.sub = this.route.params.subscribe((params) => {
       this.id = +params['id'];
     });
-    this.usersService.getSingleUser(this.id).subscribe((data) => {
+    this.fetchUser(this.id);
+    this.fetchFriends();
+    this.intersectionObserver();
+  }
+  ngAfterViewInit() {
+    this.theLastList.changes.subscribe((d) => {
+      if (d.last) this.observer.observe(d.last.nativeElement);
+    });
+  }
+  intersectionObserver() {
+    let options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5,
+    };
+    this.observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        this.currentPage++;
+        this.fetchFriends();
+      }
+    }, options);
+  }
+  fetchUser(id: number) {
+    this.usersService.getSingleUser(id).subscribe((data) => {
       this.user = data;
     });
-    this.usersService.getFriends(this.id, this.page).subscribe((data) => {
-      this.friends = data.list;
+  }
+  fetchFriends() {
+    this.usersService
+      .getFriends(this.id, this.currentPage)
+      .subscribe((data) => {
+        data.list.forEach((friend) => {
+          this.friends.push(friend);
+        });
+      });
+  }
+  displayFriend(index: number) {
+    this.fetchUser(index);
+    this.previousFriends.push(this.user);
+  }
+  moveToFriend(index: number) {
+    this.fetchUser(index);
+    const indexOfFriend = this.previousFriends.findIndex((friend) => {
+      return (friend.id = index);
     });
+    this.previousFriends.splice(indexOfFriend -1, 1);
   }
   ngOnDestroy(): void {
     this.sub.unsubscribe();
-  }
-  onClick() {
-    console.log(this.friends);
   }
   ngOnChanges(): void {
     console.log(this.user);

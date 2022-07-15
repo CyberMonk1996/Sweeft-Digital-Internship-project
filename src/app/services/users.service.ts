@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 import { Users, FullUser } from '../models/users.model';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class UsersService {
     // const params = new HttpParams();
     return this.http.get<Users>(
       `${environment.api}user/${id}/friends/${page}/20`
-      )
+    );
   }
 }
 

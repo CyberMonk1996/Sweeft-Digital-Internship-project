@@ -1,15 +1,30 @@
 <div class="container">
-  <div 
-    *ngFor="let user of users"
-    [routerLink]="['/user-details', user.id]"  
+  <div
+    *ngFor="let user of users; let i = index"
+    [routerLink]="['/user-details', user.id]"
   >
-    <div class="card">
-      <img class="card-image" src="{{ user.imageUrl }}" placeholder="Some animal, probably"/>
+    <div class="card" *ngIf="i + 1 != users.length">
+      <img
+        class="card-image"
+        src="{{ user.imageUrl }}"
+        placeholder="Some animal, probably"
+      />
+      <p>
+        <strong>{{ user.prefix }} {{ user.name }} {{ user.lastName }}</strong>
+      </p>
+      <p class="second-text">{{ user.title }}</p>
+    </div>
+
+    <div class="card" *ngIf="i + 1 === users.length" #theLastList>
+      <img
+        class="card-image"
+        src="{{ user.imageUrl }}"
+        placeholder="Some animal, probably"
+      />
       <p>
         <strong>{{ user.prefix }} {{ user.name }} {{ user.lastName }}</strong>
       </p>
       <p class="second-text">{{ user.title }}</p>
     </div>
   </div>
-
 </div>

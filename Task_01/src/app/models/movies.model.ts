@@ -1,3 +1,8 @@
+export interface data {
+  page: number,
+  results: Movie[],
+}
+
 export interface Movie {
   adult: boolean,
   backdrop_path: string,

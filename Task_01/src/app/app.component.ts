@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesServiceService } from './services/movies-service.service';
+import { MoviesService } from './services/movies-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +7,11 @@ import { MoviesServiceService } from './services/movies-service.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'Task_01';
-
-  constructor(private movServ: MoviesServiceService) {}
+  constructor(private movServ: MoviesService) {}
   ngOnInit() {}
 
   fetch() {
-    this.movServ.storeMovies();
+    this.movServ.getPopularMovies(4);
+    console.log(this.movServ.movies);
   }
 }

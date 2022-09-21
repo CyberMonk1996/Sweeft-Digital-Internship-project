@@ -1,11 +1,13 @@
 <div class="container">
-  <div *ngFor="let movie of movService.movies">
-    <div class="card">
-      <img src="{{ movService.posterLink(movie.poster_path) }}" alt="" class="poster" />
-      <p>{{ movie.original_title }} </p>
-    </div>
-  </div>
+  <app-card 
+  *ngFor="let movie of movService.movies" 
+  [data]="movie">
+ </app-card>
 </div>
 
-<button type="button" class="btn btn-primary"  (click)="previousPage()">Previous Page</button>
-<button type="button" class="btn btn-secondary" (click)="nextPage()">Next Page</button>
+<button type="button" class="btn btn-primary" (click)="previousPage()">
+  Previous Page
+</button>
+<button type="button" class="btn btn-secondary" (click)="nextPage()">
+  Next Page
+</button>

@@ -1,23 +1,23 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(4, 25% [col-start]);
   height: auto;
-  width: 90%;
+  margin-top: 5vh;
+  margin: 5vw auto;
 }
 
-.card {
-  position: relative;
-  margin: 20px;
-  width: 260px;
-  height: 400px;
+@media only screen and (min-width: 608px) and (max-width: 1023px) {
+  .container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    height: auto;
+  }
 }
 
-.poster {
-  width: 240px;
-  height: 300px;
-  margin-left: 10px;
-  margin-top: 10px;
-  border-radius: 0.4rem 0.4rem 0 0;
+@media only screen and (max-width: 608px) {
+  .container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: auto;
+  }
 }

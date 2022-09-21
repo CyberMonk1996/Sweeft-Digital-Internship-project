@@ -27,10 +27,6 @@ export class MostWatchedComponent implements OnInit {
     this._ActivatedRoute.queryParams.subscribe((params) => {
       this.pageNum = Number(params['pageNum']) || 0;
     });
-
-    // this._ActivatedRoute.params.subscribe((params) => {
-    //   console.log(params);
-    // });
   }
 
   nextPage() {
@@ -38,7 +34,8 @@ export class MostWatchedComponent implements OnInit {
       queryParams: { pageNum: this.pageNum + 1 },
       relativeTo: this._ActivatedRoute,
     });
-    this.movService.getPopularMovies(this.pageNum + 2);
+    this.pageNum ++;
+    this.movService.getPopularMovies(this.pageNum);
   }
   previousPage() {
     if (this.pageNum == 1) {
@@ -48,6 +45,8 @@ export class MostWatchedComponent implements OnInit {
       queryParams: { pageNum: this.pageNum - 1 },
       relativeTo: this._ActivatedRoute,
     });
-    this.movService.getPopularMovies(this.pageNum + 2);
+    this.pageNum--;
+    this.movService.getPopularMovies(this.pageNum);
+    console.log(this.pageNum);
   }
 }

@@ -1,0 +1,10 @@
+<div class="card">
+  <img
+    src="{{ movService.posterLink(data.poster_path) }}"
+    alt=""
+    class="poster"
+  />
+
+  <p class="card-text">{{ data.original_title }}</p>
+  <p class="card-text">{{ data.release_date | date: "YYYY" }}</p>
+</div>

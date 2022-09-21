@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  border: 1px solid black;
+  margin: 3rem auto;
+  border-radius: 0.4rem;
+  background-color: white;
+}
+
+.box {
+  width: 50%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.box-1 {
+  border-right: 1px solid black;
+}
+
+.nav-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
+}

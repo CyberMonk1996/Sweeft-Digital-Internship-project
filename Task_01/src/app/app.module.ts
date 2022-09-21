@@ -8,11 +8,12 @@ import { AppComponent } from './app.component';
 
 import { MostViewedModule } from "./most-viewed/most-viewed.module";
 import { RecentlyUploadedModule } from "./recently-uploaded/recently-uploaded.module";
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavbarComponent],
   imports: [
     BrowserModule, 
     AppRoutingModule,

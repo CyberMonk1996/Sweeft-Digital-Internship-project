@@ -2,8 +2,7 @@
   display: grid;
   grid-template-columns: repeat(4, 25% [col-start]);
   height: auto;
-  margin-top: 5vh;
-  margin: 5vw auto;
+  margin: 5vh auto;
 }
 
 @media only screen and (min-width: 608px) and (max-width: 1023px) {

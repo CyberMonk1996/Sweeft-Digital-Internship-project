@@ -2,6 +2,11 @@
   position: relative;
   margin: 30px auto;
   width: 240px;
+  background-color: var(--third-color);
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .poster {
@@ -16,4 +21,5 @@
   font-size: 1.2rem;
   margin-left: 10px;
   font-weight: 600;
+  color: var(--text-color);
 }

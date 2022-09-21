@@ -1,0 +1,18 @@
+.navbar {
+  height: 70px;
+  background-color: var(--second-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.logo {
+  width: 70px;
+  margin-top: -8.5px;
+  margin-left: 2vw;
+}
+
+.head-text {
+  margin-left: 2rem;
+}

@@ -1,33 +1,4 @@
-.container {
-  display: flex;
-  flex-direction: row;
-  width: 70%;
-  border: 1px solid black;
-  margin: 3rem auto;
-}
 
-.box {
-  width: 50%;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: var(--fourth-color);
-  cursor: pointer;
-}
-
-.box:hover {
-  background-color: var(--third-color);
-  transform: scale(1.02);
-}
-
-.box-1 {
-  border-right: 1.15px solid var(--text-color);
-  border-radius: 0.4rem 0 0 0.4rem;
-}
-.box-2 {
-  border-left: 1.5px solid var(--text-color);
-  border-radius: 0 0.4rem 0.4rem 0;
-}
 
 .nav-text {
   margin-top: 10px;

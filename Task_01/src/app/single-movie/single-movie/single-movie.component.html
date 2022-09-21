@@ -1,0 +1,39 @@
+<div class="upper-container">
+  <img
+    class="movie-poster"
+    src="{{ movService.posterLink(movService.singleMovie.poster_path) }}"
+    alt="poster of the movie"
+  />
+  <div class="information">
+    <h2>{{ movService.singleMovie.original_title }}</h2>
+    <div class="info-details">
+      <div class="genre" *ngFor="let genre of movService.singleMovie.genres">
+        <p>{{ genre.name }} |</p>
+      </div>
+      <p class="date">{{ movService.singleMovie.release_date | date: "YYYY" }}</p>
+      <div class="duration">
+        <p class="duration-text">{{ movService.singleMovie.runtime }} min</p>
+      </div>
+    </div>
+    <div class="info-details">
+      <p>{{ movService.singleMovie.vote_average }}</p>
+      <p>({{ movService.singleMovie.vote_count }})</p>
+      <div class="adult-container" *ngIf="this.movService.singleMovie.adult">
+        <img
+          class="adult-icon"
+          src="../../../assets/images/failure.png"
+          alt="adult movie icon"
+        />
+      </div>
+      <div class="adult-container" *ngIf="!this.movService.singleMovie.adult">
+        <p>+12</p>
+        <img
+          class="adult-icon"
+          src="../../../assets/images/success.png"
+          alt="adult movie icon"
+        />
+
+    </div>
+      </div>
+    </div>
+  </div>

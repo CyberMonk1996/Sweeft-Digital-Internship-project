@@ -10,13 +10,14 @@ import { Movie, data } from '../models/movies.model';
 export class MoviesService {
   constructor(private http: HttpClient) {}
   movies!: Movie[];
+  singleMovie!: Movie;
 
   getMovies(url: string): Observable<data> {
     return this.http.get<data>(url);
   }
 
   getPopularMovies(pageNum: number) {
-    const url = `${environment.API}movie/popular?api_key=${environment.apiKey}&page=${pageNum}&sort_by=release_date.desc`;
+    const url = `${environment.API}movie/popular?api_key=${environment.apiKey}&page=${pageNum}`;
     this.getMovies(url).subscribe((data) => {
       console.log(data);
       this.movies = data.results;
@@ -26,9 +27,16 @@ export class MoviesService {
   getRecentMovies(pageNum: number) {
     const url = `${environment.API}discover/movie?api_key=${environment.apiKey}&page=${pageNum}&sort_by=release_date.desc`;
     this.getMovies(url).subscribe((data) => {
-      console.log(data);
       this.movies = data.results;
-    })
+    });
+  }
+
+  getSingleMovie(id: number) {
+    const url = `${environment.API}movie/${id}?api_key=${environment.apiKey}&language=en-US`;
+    this.http.get<Movie>(url).subscribe((data) => {
+      this.singleMovie = data;
+      console.log(this.singleMovie);
+    });
   }
 
   posterLink(posterPath: string) {

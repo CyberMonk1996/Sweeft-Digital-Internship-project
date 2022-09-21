@@ -1,4 +1,7 @@
-<div class="card">
+<div 
+  class="card"
+  [routerLink]="['/movie', data.id]"
+  >
   <img
     src="{{ movService.posterLink(data.poster_path) }}"
     alt=""

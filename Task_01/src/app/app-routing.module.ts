@@ -16,6 +16,14 @@ const routes: Routes = [
         (mod) => mod.RecentlyUploadedModule
       ),
   },
+  {
+    path: 'movie/:id',
+    title: 'Movie Details',
+    loadChildren: () =>
+      import('./single-movie/single-movie.module').then(
+        (mod) => mod.SingleMovieModule
+      ),
+  },
 ];
 
 @NgModule({

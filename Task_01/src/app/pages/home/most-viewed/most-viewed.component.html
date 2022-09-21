@@ -1,0 +1,13 @@
+<div class="container">
+  <app-card *ngFor="let movie of movService.movies" 
+    [data]="movie"
+    ></app-card>
+</div>
+<div class="buttons">
+<button type="button" class="btn btn-primary" (click)="previousPage()">
+  Previous Page
+</button>
+<button type="button" class="btn btn-secondary" (click)="nextPage()">
+  Next Page
+</button>
+</div>

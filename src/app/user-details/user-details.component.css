@@ -1,0 +1,88 @@
+.container {
+  border: 1px solid grey;
+  width: 90%;
+  margin-left: 5%;
+}
+.user-info-container {
+  display: grid;
+  grid-template-columns: 20% 47% 20%;
+  justify-content: space-around;
+}
+
+.image {
+  width: 200px;
+  height: 150px;
+  margin-top: 20px;
+}
+
+.personal-info {
+  height: 100px;
+  padding-top: 20px;
+  margin-top: 25px;
+  margin-left: 20px;
+  font-weight: 300;
+  font-family: "Roboto-light";
+}
+
+.address {
+  font-family: "Roboto-light";
+}
+
+.text {
+  margin-top: -10px;
+  font-family: "Roboto" sans-serif;
+}
+
+.friends-header {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  margin-left: 30px;
+}
+
+.friends-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card {
+  width: 200px;
+  height: 240px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-family: "Roboto-light";
+}
+
+.card-image {
+  width: 200px;
+  height: 180px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-top: -1px;
+}
+
+p {
+  font-size: 12px;
+  margin-top: -2px;
+}
+
+.second-text {
+  margin-top: -11px;
+}
+
+.breadcrumbContainer {
+  display: inline-flex;
+  flex-flow: row wrap;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  margin-left: 10px;
+  height: 20px;
+  text-align: center;
+}
+
+.bread-text {
+  margin-top: 3px;
+}

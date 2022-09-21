@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card {
+  width: 200px;
+  height: 230px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-family: "Roboto-light";
+}
+
+.card-image {
+  width: 201px;
+  height: 180px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+p {
+  font-size: 12px;
+  margin-top: -2px;
+}
+
+.second-text {
+  margin-top: -11px;
+}

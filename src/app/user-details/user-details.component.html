@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="user-info-container">
+    <img class="image" src="{{ user.imageUrl }}" />
+
+    <fieldset class="personal-info">
+      <legend>Information</legend>
+      <div>
+        <p class="text">
+          <strong>{{ user.prefix }} {{ user.name }} {{ user.lastName }}</strong>
+        </p>
+        <p class="text">
+          <i>{{ user.title }}</i>
+        </p>
+      </div>
+      <div class="info-body">
+        <p class="text"><u>Email:</u> {{ user.email }}</p>
+        <p class="text"><u>Ip Address:</u> {{ user.ip }}</p>
+        <p class="text"><u>Job Area:</u> {{ user.jobArea }}</p>
+        <p class="text"><u>Job Type:</u> {{ user.jobType }}</p>
+      </div>
+    </fieldset>
+    <fieldset class="address">
+      <legend>Address</legend>
+      <p>
+        <strong>{{ user.company.name }} {{ user.company.suffix }}</strong>
+      </p>
+      <div>
+        <p><u>City:</u> {{ user.address.city }}</p>
+        <p><u>Country:</u> {{ user.address.country }}</p>
+        <p><u>State:</u> {{ user.address.state }}</p>
+        <p><u>Street Address:</u> {{ user.address.streetAddress }}</p>
+        <p><u>ZIP:</u> {{ user.address.zipCode }}</p>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="breadcrumbContainer" *ngFor="let friend of previousFriends">
+    <div class="breadcrumb" (click)="moveToFriend(friend.id)">
+      <a [routerLink]="['/user-details', friend.id]">
+        <p class="bread-text">
+          {{ friend.prefix }} {{ friend.name }} {{ friend.lastName }} >
+        </p>
+      </a>
+    </div>
+  </div>
+
+  <h2 class="friends-header">Friends:</h2>
+  <div class="friends-container">
+    <div
+      *ngFor="let friend of friends; let i = index"
+      [routerLink]="['/user-details', friend.id]"
+    >
+      <div
+        class="card"
+        *ngIf="i + 1 != friends.length"
+        (click)="displayFriend(i)"
+      >
+        <img
+          class="card-image"
+          src="{{ friend.imageUrl }}"
+          placeholder="Some animal, probably"
+        />
+        <p>
+          <strong
+            >{{ friend.prefix }} {{ friend.name }} {{ friend.lastName }}</strong
+          >
+        </p>
+        <p class="second-text">{{ friend.title }}</p>
+      </div>
+
+      <div class="card" *ngIf="i + 1 === friends.length" #theLastList>
+        <img
+          class="card-image"
+          src="{{ friend.imageUrl }}"
+          placeholder="Some animal, probably"
+        />
+        <p>
+          <strong
+            >{{ friend.prefix }} {{ friend.name }} {{ friend.lastName }}</strong
+          >
+        </p>
+        <p class="second-text">{{ friend.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>
